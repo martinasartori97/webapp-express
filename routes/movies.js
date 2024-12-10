@@ -5,8 +5,17 @@ const connection = require('../database/connection')
 
 
 router.get('/', (req, res) => {
-    res.json({
-        films: 'all films here'
+
+    const sql = `SELECT * FROM movies`;
+
+    connection.query(sql, (err, results) => {
+        console.log(results);
+
+
+
+        res.json({
+            movies: results
+        })
     })
 })
 
