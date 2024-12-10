@@ -14,10 +14,34 @@ router.get('/', (req, res) => {
 
 
         res.json({
-            movies: results
+            movies: results,
+            count: results.lenght
         })
     })
 })
+
+router.get('/:id', (req, res) => {
+
+    const id = req.params.id
+    const sql = `SELECT * FROM movies WHERE id = ?`;
+
+
+    connection.query(sql, [id], (err, results) => {
+        if (err) return res.status(500).json({ err: err })
+        console.log(results);
+
+        const movie = {
+            ...results[0]
+        }
+        res.json({
+            movie
+        })
+
+
+
+    })
+})
+
 
 
 
