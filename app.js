@@ -1,6 +1,14 @@
 const express = require('express');
 const serevr = express();
 const MoviesRouter = require('./routes/movies')
+const cors = require('cors');
+const corsOptions = {
+    origin: process.env.WEB_APP_REACT_ORIGIN,
+    optionsSuccessStatus: 200
+}
+console.log(corsOptions);
+serevr.use(cors(corsOptions));
+
 
 const HOST = process.env.HOST || 'http://localhost';
 const PORT = process.env.PORT || '3001'
