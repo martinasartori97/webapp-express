@@ -3,7 +3,7 @@ const server = express();
 const MoviesRouter = require('./routes/movies')
 const cors = require('cors');
 const corsOptions = {
-    origin: process.env.WEB_APP_REACT_ORIGIN,
+    origin: "http://localhost:5173",
     optionsSuccessStatus: 200
 }
 console.log(corsOptions);
