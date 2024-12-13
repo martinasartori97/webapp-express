@@ -8,6 +8,7 @@ const corsOptions = {
 }
 console.log(corsOptions);
 server.use(cors(corsOptions));
+server.use(express.json())
 
 
 const HOST = process.env.HOST || 'http://localhost';
