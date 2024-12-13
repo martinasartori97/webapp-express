@@ -43,7 +43,10 @@ function show(req, res) {
 }
 
 function createReview(req, res) {
-    const { movie_id, name, vote, text } = req.body;
+
+    const movie_id = req.params.id
+    console.log(req);
+    const { name, vote, text } = req.body;
     const sql = 'INSERT INTO reviews (movie_id, name, vote, text) VALUES (?, ?, ?, ?)';
     connection.query(sql, [movie_id, name, vote, text], (err, results) => {
         if (err) {
@@ -53,7 +56,6 @@ function createReview(req, res) {
         res.status(201).json({ message: 'Recensione salvata', reviewId: results.insertId });
     });
 }
-
 
 
 
