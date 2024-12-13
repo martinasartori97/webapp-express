@@ -15,6 +15,7 @@ const PORT = process.env.PORT || '3001'
 
 server.use('/api/movies', MoviesRouter);
 
+
 server.listen(PORT, () => {
     console.log(`server is listening on port  ${HOST}:${PORT}`);
 
@@ -24,5 +25,6 @@ server.listen(PORT, () => {
 server.get('/', (req, res) => {
     res.send('server is up and running!');
 })
+
 
 
