@@ -23,19 +23,21 @@ function show(req, res) {
 
         console.log(results);
 
-        connection.query(reviewssql), [id], (err, reviewsResults) => {
+        connection.query(reviewssql, [id], (err, reviewsResults) => {
             if (err) return res.status(500).json({ err: err })
             console.log('reviews', reviewsResults);
+            const movie = {
+                ...results[0],
+                reviews: reviewsResults
 
-        }
+            }
+            res.json({
+                movie
+            })
 
-        const movie = {
-            ...results[0],
-
-        }
-        res.json({
-            movie
         })
+
+
 
 
 
